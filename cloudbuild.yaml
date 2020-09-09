@@ -25,7 +25,7 @@ steps:
       echo "***********************"
 
 - id: 'tf init'
-  name: 'hashicorp/terraform:0.12.0'
+  name: 'hashicorp/terraform:0.12.24'
   entrypoint: 'sh'
   args: 
   - '-c'
@@ -50,7 +50,7 @@ steps:
 
 # [START tf-plan]
 - id: 'tf plan'
-  name: 'hashicorp/terraform:0.12.0'
+  name: 'hashicorp/terraform:0.12.24'
   entrypoint: 'sh'
   args: 
   - '-c'
@@ -73,13 +73,15 @@ steps:
         done
       fi
   env:
-    - 'TF_VAR_project_id=$_TEST_PROJECT_ID'
-    - 'TF_VAR_service_account_email=$_SERVICE_ACCOUNT_EMAIL'    
+    - 'TF_VAR_project_id=$_PROJECT_ID'
+    - 'TF_VAR_service_account_email=$_SERVICE_ACCOUNT_EMAIL'
+    - 'TF_VAR_source_gcs_bucket=$_SOURCE_GCS_BUCKET'
+    - 'TF_VAR_region=$_REGION'    
 # [END tf-plan]
 
 # [START tf-apply]
 - id: 'tf apply'
-  name: 'hashicorp/terraform:0.12.0'
+  name: 'hashicorp/terraform:0.12.24'
   entrypoint: 'sh'
   args: 
   - '-c'
@@ -93,6 +95,8 @@ steps:
         echo "*******************************************************************************"
       fi
   env:
-    - 'TF_VAR_project_id=$_TEST_PROJECT_ID'
+    - 'TF_VAR_project_id=$_PROJECT_ID'
     - 'TF_VAR_service_account_email=$_SERVICE_ACCOUNT_EMAIL'
+    - 'TF_VAR_source_gcs_bucket=$_SOURCE_GCS_BUCKET'
+    - 'TF_VAR_region=$_REGION'
 # [END tf-apply]      
