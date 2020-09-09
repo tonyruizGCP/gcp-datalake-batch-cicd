@@ -27,3 +27,8 @@ variable "service_account_email" {
   type        = string
   description = "The Service Account email used to create the job."
 }
+
+variable "source_gcs_bucket" {
+  type        = string
+  description = "The Source GCS Bucket."
+}
