@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Data Lake CI/CD Testing 1
 terraform {
   required_version = ">= 0.12.0"
 }
@@ -66,9 +67,9 @@ resource "google_dataflow_job" "dataflow_job" {
   service_account_email = "${var.service_account_email}"
   parameters = {
     javascriptTextTransformFunctionName ="transform"
-    JSONPath               = "gs://f5-batch-pipeline/bq_schema.json"
-    javascriptTextTransformGcsPath = "gs://f5-batch-pipeline/etl.js"
-    inputFilePattern       = "gs://f5-batch-pipeline/cc_records.csv"
+    JSONPath               = "gs://${var.source_gcs_bucket}/bq_schema.json"
+    javascriptTextTransformGcsPath = "gs://${var.source_gcs_bucket}/etl.js"
+    inputFilePattern       = "gs://${var.source_gcs_bucket}/cc_records.csv"
     outputTable            = "${var.project_id}:${google_bigquery_dataset.default.dataset_id}.credit_cards"
     bigQueryLoadingTemporaryDirectory = "gs://${local.gcs_bucket_name}/tmp_dir1"
   }

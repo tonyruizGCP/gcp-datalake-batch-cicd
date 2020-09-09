@@ -20,10 +20,14 @@ variable "project_id" {
 variable "region" {
   type        = string
   description = "The region in which the bucket and the dataflow job will be deployed"
-  default     = "us-west1"
 }
 
 variable "service_account_email" {
   type        = string
   description = "The Service Account email used to create the job."
+}
+
+variable "source_gcs_bucket" {
+  type        = string
+  description = "The Source GCS Bucket."
 }
