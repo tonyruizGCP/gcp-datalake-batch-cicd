@@ -3,6 +3,7 @@
 This tutorial explains how to manage infrastructure as code with Terraform and Cloud Build using the popular GitOps methodology for Data Lake pipelines
 
 ## Configuring your **dev** environment
+
 Just for demostration, this step will:
 
  1. Create Data Flow
