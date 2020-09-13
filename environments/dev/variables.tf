@@ -31,3 +31,8 @@ variable "source_gcs_bucket" {
   type        = string
   description = "The Source GCS Bucket."
 }
+
+variable "tfstate_gcs_bucket" {
+  type        = string
+  description = "The Terraform state GCS Bucket."
+}
