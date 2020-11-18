@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# “Data Lake CI/CD Workshop for a customer 3” 
 
 terraform {
   required_version = ">= 0.12.0"
