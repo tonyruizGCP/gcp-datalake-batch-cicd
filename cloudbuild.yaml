@@ -100,3 +100,7 @@ steps:
     - 'TF_VAR_source_gcs_bucket=$_SOURCE_GCS_BUCKET'
     - 'TF_VAR_region=$_REGION'
 # [END tf-apply]      
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY
